@@ -186,7 +186,7 @@ if __name__ == '__main__':
 
     print('####  INITIALISATION  ####') 
 
-    nr_reps=500               # nr of repetitions (total nr models) % 500 
+    nr_reps=500               # nr of repetitions (total nr models) % 500
     nclustering=32            # how many times we do clustering (best solution will be chosen) % 32
     prop=0.25                 # proportion of the data we sample for clustering
     gamma=0.99                # gamma
@@ -226,7 +226,12 @@ if __name__ == '__main__':
     MIMICzs=np.concatenate([reformat5[:, colbin]-0.5, zscore(reformat5[:,colnorm],ddof=1), zscore(np.log(0.1+reformat5[:, collog]),ddof=1)],axis=1)
     MIMICzs[:,3]=np.log(MIMICzs[:,3]+0.6)   # MAX DOSE NORAD 
     MIMICzs[:,44]=2*MIMICzs[:,44]   # increase weight of this variable
+    # Copy MIMICzs into a new variable and add icustayid
+    MIMICzs_with_ids = np.concatenate([icustayidlist.values.reshape(-1, 1), MIMICzs], axis=1)
 
+    # Pickle the new table
+    with open('MIMICzs_with_icustayid.pkl', 'wb') as file:
+        pickle.dump(MIMICzs_with_ids, file)
 
     # eICU section was not implemented 
     

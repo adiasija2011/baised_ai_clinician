@@ -101,53 +101,129 @@ for index,s in enumerate(sample_and_hold[1,:]):
 
 # Based on whos command in Matlab, data type was double (8 bytes) except demog (Table)
 # In Python, it was stored in float64 
+#
+# print('Load abx')
+# abx = pd.read_csv('D:/exportdir/abx.csv',delimiter='|').values
+# print('Load culture')
+# culture=pd.read_csv('D:/exportdir/culture.csv',delimiter='|').values
+# print('Load microbio')
+# microbio=pd.read_csv('D:/exportdir/microbio.csv',delimiter='|').values
+# print('Load demog')
+# demog=pd.read_csv('D:/exportdir/demog.csv',delimiter='|') # read as DataFrame
+# print('Load ce010')
+# ce010=pd.read_csv('D:/exportdir/ce010000.csv',delimiter='|').values
+# print('Load ce1020')
+# ce1020=pd.read_csv('D:/exportdir/ce1000020000.csv',delimiter='|').values
+# print('Load ce2030')
+# ce2030=pd.read_csv('D:/exportdir/ce2000030000.csv',delimiter='|').values
+# print('Load ce3040')
+# ce3040=pd.read_csv('D:/exportdir/ce3000040000.csv',delimiter='|').values
+# print('Load ce4050')
+# ce4050=pd.read_csv('D:/exportdir/ce4000050000.csv',delimiter='|').values
+# print('Load ce5060')
+# ce5060=pd.read_csv('D:/exportdir/ce5000060000.csv',delimiter='|').values
+# print('Load ce6070')
+# ce6070=pd.read_csv('D:/exportdir/ce6000070000.csv',delimiter='|').values
+# print('Load ce7080')
+# ce7080=pd.read_csv('D:/exportdir/ce7000080000.csv',delimiter='|').values
+# print('Load ce8090')
+# ce8090=pd.read_csv('D:/exportdir/ce8000090000.csv',delimiter='|').values
+# print('Load ce90100')
+# ce90100=pd.read_csv('D:/exportdir/ce90000100000.csv',delimiter='|').values
+# print('Load labU')
+# labU = np.vstack([pd.read_csv('D:/exportdir/labs_ce.csv',delimiter='|').values, pd.read_csv('D:/exportdir/labs_le.csv',delimiter='|').values  ])
+# print('Load MV')
+# MV=pd.read_csv('D:/exportdir/mechvent.csv',delimiter='|').values
+# print('Load inputpreadm')
+# inputpreadm=pd.read_csv('D:/exportdir/preadm_fluid.csv',delimiter='|').values
+# print('Load inputMV')
+# inputMV=pd.read_csv('D:/exportdir/fluid_mv.csv',delimiter='|').values
+# print('Load inputCV')
+# inputCV=pd.read_csv('D:/exportdir/fluid_cv.csv',delimiter='|').values
+# print('Load vasoMV')
+# vasoMV=pd.read_csv('D:/exportdir/vaso_mv.csv',delimiter='|').values
+# print('Load vasoCV')
+# vasoCV=pd.read_csv('D:/exportdir/vaso_cv.csv',delimiter='|').values
+# print('Load UOpreadm')
+# UOpreadm=pd.read_csv('D:/exportdir/preadm_uo.csv',delimiter='|').values
+# print('Load UO')
+# UO=pd.read_csv('D:/exportdir/uo.csv',delimiter='|').values
+import pandas as pd
+import numpy as np
+
+# Base path to the dataset directory
+base_path = '/Users/adi/Documents/JHU/carey_Ra/py_ai_clinician/dataset/'
 
 print('Load abx')
-abx = pd.read_csv('D:/exportdir/abx.csv',delimiter='|').values
+abx = pd.read_csv(base_path + 'abx.csv', delimiter='|').values
+
 print('Load culture')
-culture=pd.read_csv('D:/exportdir/culture.csv',delimiter='|').values
+culture = pd.read_csv(base_path + 'culture.csv', delimiter='|').values
+
 print('Load microbio')
-microbio=pd.read_csv('D:/exportdir/microbio.csv',delimiter='|').values
+microbio = pd.read_csv(base_path + 'microbio.csv', delimiter='|').values
+
 print('Load demog')
-demog=pd.read_csv('D:/exportdir/demog.csv',delimiter='|') # read as DataFrame 
+demog = pd.read_csv(base_path + 'demog.csv', delimiter='|')  # read as DataFrame
+
 print('Load ce010')
-ce010=pd.read_csv('D:/exportdir/ce010000.csv',delimiter='|').values
+ce010 = pd.read_csv(base_path + 'ce010000.csv', delimiter='|').values
+
 print('Load ce1020')
-ce1020=pd.read_csv('D:/exportdir/ce1000020000.csv',delimiter='|').values
+ce1020 = pd.read_csv(base_path + 'ce1000020000.csv', delimiter='|').values
+
 print('Load ce2030')
-ce2030=pd.read_csv('D:/exportdir/ce2000030000.csv',delimiter='|').values
+ce2030 = pd.read_csv(base_path + 'ce2000030000.csv', delimiter='|').values
+
 print('Load ce3040')
-ce3040=pd.read_csv('D:/exportdir/ce3000040000.csv',delimiter='|').values
+ce3040 = pd.read_csv(base_path + 'ce3000040000.csv', delimiter='|').values
+
 print('Load ce4050')
-ce4050=pd.read_csv('D:/exportdir/ce4000050000.csv',delimiter='|').values
+ce4050 = pd.read_csv(base_path + 'ce4000050000.csv', delimiter='|').values
+
 print('Load ce5060')
-ce5060=pd.read_csv('D:/exportdir/ce5000060000.csv',delimiter='|').values
+ce5060 = pd.read_csv(base_path + 'ce5000060000.csv', delimiter='|').values
+
 print('Load ce6070')
-ce6070=pd.read_csv('D:/exportdir/ce6000070000.csv',delimiter='|').values
+ce6070 = pd.read_csv(base_path + 'ce6000070000.csv', delimiter='|').values
+
 print('Load ce7080')
-ce7080=pd.read_csv('D:/exportdir/ce7000080000.csv',delimiter='|').values
+ce7080 = pd.read_csv(base_path + 'ce7000080000.csv', delimiter='|').values
+
 print('Load ce8090')
-ce8090=pd.read_csv('D:/exportdir/ce8000090000.csv',delimiter='|').values
-print('Load ce90100') 
-ce90100=pd.read_csv('D:/exportdir/ce90000100000.csv',delimiter='|').values
-print('Load labU') 
-labU = np.vstack([pd.read_csv('D:/exportdir/labs_ce.csv',delimiter='|').values, pd.read_csv('D:/exportdir/labs_le.csv',delimiter='|').values  ])
+ce8090 = pd.read_csv(base_path + 'ce8000090000.csv', delimiter='|').values
+
+print('Load ce90100')
+ce90100 = pd.read_csv(base_path + 'ce90000100000.csv', delimiter='|').values
+
+print('Load labU')
+labs_ce = pd.read_csv(base_path + 'labs_ce.csv', delimiter='|').values
+labs_le = pd.read_csv(base_path + 'labs_le.csv', delimiter='|').values
+labU = np.vstack([labs_ce, labs_le])
+
 print('Load MV')
-MV=pd.read_csv('D:/exportdir/mechvent.csv',delimiter='|').values
+MV = pd.read_csv(base_path + 'mechvent.csv', delimiter='|').values
+
 print('Load inputpreadm')
-inputpreadm=pd.read_csv('D:/exportdir/preadm_fluid.csv',delimiter='|').values
+inputpreadm = pd.read_csv(base_path + 'preadm_fluid.csv', delimiter='|').values
+
 print('Load inputMV')
-inputMV=pd.read_csv('D:/exportdir/fluid_mv.csv',delimiter='|').values
+inputMV = pd.read_csv(base_path + 'fluid_mv.csv', delimiter='|').values
+
 print('Load inputCV')
-inputCV=pd.read_csv('D:/exportdir/fluid_cv.csv',delimiter='|').values
+inputCV = pd.read_csv(base_path + 'fluid_cv.csv', delimiter='|').values
+
 print('Load vasoMV')
-vasoMV=pd.read_csv('D:/exportdir/vaso_mv.csv',delimiter='|').values
+vasoMV = pd.read_csv(base_path + 'vaso_mv.csv', delimiter='|').values
+
 print('Load vasoCV')
-vasoCV=pd.read_csv('D:/exportdir/vaso_cv.csv',delimiter='|').values
+vasoCV = pd.read_csv(base_path + 'vaso_cv.csv', delimiter='|').values
+
 print('Load UOpreadm')
-UOpreadm=pd.read_csv('D:/exportdir/preadm_uo.csv',delimiter='|').values
-print('Load UO') 
-UO=pd.read_csv('D:/exportdir/uo.csv',delimiter='|').values
+UOpreadm = pd.read_csv(base_path + 'preadm_uo.csv', delimiter='|').values
+
+print('Load UO')
+UO = pd.read_csv(base_path + 'uo.csv', delimiter='|').values
 
 
 # In[ ]:
