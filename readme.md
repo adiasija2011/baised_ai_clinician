@@ -1,3 +1,11 @@
+## To replicate 
+
+Please download the large files from the data the drop box link and copy them into this directory. 
+
+Your directory structure should mimic the following :
+https://github.com/uribyul/py_ai_clinician
+
+Please find the attaached data analysis script in Core_Visualize.ipynb
 
 ## Python Reimplementation of AI Clinician in Matlab 
 The goal of this project is to provide python implementation of recent Nature Medicine paper by Komorowski et al. [1]. 
